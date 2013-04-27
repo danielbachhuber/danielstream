@@ -1,0 +1,11 @@
+/*
+Theme Name: Twenty Daniel
+Theme URI: https://github.com/danielbachhuber/twentydaniel
+Author: Daniel Bachhuber
+Author URI: http://danielbachhuber.com/
+Description: Tweaks to Daniel's website
+Version: 0.1
+Template: twentythirteen
+*/
+
+@import url( '../twentythirteen/style.css' );
