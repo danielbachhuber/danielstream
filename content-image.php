@@ -1,4 +1,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ( is_tax( 'post_format', 'post-format-image' ) && function_exists( 'get_post_format_meta' ) ) : ?>
+		<div class="entry-content">
+			@todo the image
+		</div>	
+	<?php else : ?>
+
 	<header class="entry-header">
 		<?php if ( !is_single() ) : ?>
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'minimal_stream' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
@@ -22,4 +28,6 @@
 		</div>
 		<?php endif; ?>
 	</footer><!-- .entry-meta -->
+
+	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
