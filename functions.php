@@ -7,7 +7,7 @@ function td_get_formats_to_categories() {
 	return array(
 			'aside'         => 'asides',
 			'gallery'       => 'galleries',
-			'photo'         => 'photos',
+			'image'         => 'photos',
 			'quote'         => 'quotes',
 			'status'        => 'statuses',
 			'video'         => 'videos',
