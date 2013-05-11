@@ -1,6 +1,20 @@
 <?php
 
 /**
+ * Get our format to category conversions
+ */
+function td_get_formats_to_categories() {
+	return array(
+			'aside'         => 'asides',
+			'gallery'       => 'galleries',
+			'photo'         => 'photos',
+			'quote'         => 'quotes',
+			'status'        => 'statuses',
+			'video'         => 'videos',
+		);
+}
+
+/**
  * Categories are old skool
  */
 add_action( 'add_meta_boxes', 'td_remove_category_meta_box', 100 );
@@ -18,14 +32,7 @@ function td_assign_category_from_post_format( $post_id ) {
 
 	$post_format = get_post_format( $post_id );
 
-	$formats_to_categories = array(
-			'aside'         => 'asides',
-			'gallery'       => 'galleries',
-			'photo'         => 'photos',
-			'quote'         => 'quotes',
-			'status'        => 'statuses',
-			'video'         => 'videos',
-		);
+	$formats_to_categories = td_get_formats_to_categories();
 	if ( isset( $formats_to_categories[$post_format] ) )
 		$category = $formats_to_categories[$post_format];
 	else
@@ -33,6 +40,25 @@ function td_assign_category_from_post_format( $post_id ) {
 
 	wp_set_object_terms( $post_id, array( $category ), 'category' );
 }
+/**
+ * ... and we should redirect categories to their corresponding type pages
+ */
+add_action( 'init', 'td_redirect_categories_to_formats' );
+function td_redirect_categories_to_formats() {
+
+	$formats_to_categories = td_get_formats_to_categories();
+
+	if ( false !== stripos( $_SERVER['REQUEST_URI'], '/category/' ) ) {
+		$category = trim( str_replace( '/category/', '', $_SERVER['REQUEST_URI'] ), '/' );
+		if ( false !== ( $index = array_search( $category, $formats_to_categories ) ) ) {
+			$redirect_to = get_post_format_link( $index ); 
+			wp_safe_redirect( $redirect_to, 301 );
+			exit;
+		}
+	}
+
+}
+
 
 /**
  * Tin-foil hat: off
