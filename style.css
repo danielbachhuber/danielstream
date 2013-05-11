@@ -23,6 +23,10 @@ Template: minimal-stream
 	margin-left: 70px;
 }
 
+.format-gallery .entry-content p {
+	width:auto;
+}
+
 footer.entry-meta .post-meta {
 	text-align: left;
 }
