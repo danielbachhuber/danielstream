@@ -1,11 +1,11 @@
 /*
-Theme Name: Twenty Daniel
-Theme URI: https://github.com/danielbachhuber/twentydaniel
+Theme Name: danielstream
+Theme URI: https://github.com/danielbachhuber/danielstream
 Author: Daniel Bachhuber
 Author URI: http://danielbachhuber.com/
 Description: Tweaks to Daniel's website
 Version: 0.1
-Template: twentythirteen
+Template: minimal-stream
 */
 
-@import url( '../twentythirteen/style.css' );
+@import url( '../minimal-stream/style.css' );
