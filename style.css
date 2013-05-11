@@ -9,3 +9,41 @@ Template: minimal-stream
 */
 
 @import url( '../minimal-stream/style.css' );
+
+.entry-title {
+	margin-bottom: 20px;
+}
+
+.format-status .avatar-wrap {
+	float: left;
+	margin-right: 0;
+}
+
+.format-status .entry-content {
+	margin-left: 70px;
+}
+
+footer.entry-meta .post-meta {
+	text-align: left;
+}
+
+footer.entry-meta .post-meta a {
+	border-bottom: none;
+}
+
+footer.entry-meta .post-meta a:hover {
+	border-bottom: 1px solid #e1e1e1;
+}
+
+footer.entry-meta .post-meta .entry-tags {
+	padding-left: 5px;
+}
+
+footer.entry-meta .post-meta .entry-tags,
+footer.entry-meta .post-meta .entry-tags a {
+	color: #CCCCCC;
+}
+
+footer.entry-meta .edit-link {
+	float:right;
+}

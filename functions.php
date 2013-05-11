@@ -80,3 +80,24 @@ function td_wp_footer_google_analytics () {
 </script>
 <?php
 }
+
+
+/**
+ * Drop the "Posted On" from the text
+ */
+function minimal_stream_posted_on() {
+	if ( !is_single() ) {
+		printf( __( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>', 'minimal_stream' ),
+			esc_url( get_permalink() ),
+			esc_attr( get_the_time() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	}
+	else {
+		printf( __( '<time class="entry-date" datetime="%1$s" pubdate>%2$s</time>', 'minimal_stream' ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
+	}
+}
